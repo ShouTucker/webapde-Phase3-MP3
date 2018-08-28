@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>MemePanda</title>
+        <link rel="stylesheet" href="/css/bootstrap.css" />
+        <style>
+            img{
+                width:100%;
+                height:50%;
+                margin-left:auto;
+                margin-right:auto;
+            }
+            
+            .logo{
+                width:4%;
+                height:4%;
+            }
+            
+            .upload{
+                width:2%;
+                height:2%;
+                margin:0;
+            }
+            
+            h5{
+                color:blue;
+            }
+            body {
+                min-height: 75rem;
+                padding-top: 4.5rem;
+            }
+        </style>
+    </head>
+     
+    <body>
+
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <img class="logo" src="/images/logo.jpg" alt="" onclick="window.location.href='http://localhost:3000/home'" style="cursor: pointer">
+            <a class="navbar-brand" href="/users/home">  MEME PANDA</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <form class="form-inline mt-2 mt-md-0 collapse navbar-collapse" action="/search" method="get">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="searchbar">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            <div class="form-inline" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/profile">Account</a>
+                    </li> 
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/upload">Upload</a>
+                    </li>
+                    <li class="nav-item active"> 
+                        <a class="nav-link" href="/users/logout">Logout</a>  
+                    </li>
+                </ul> 
+                
+            </div>
+        </nav>
+        
+        
+ 
+        <main role="main" class="container">
+            <h2>{{files.title}}</h2>
+            <a href="/profile/{{files.username}}"><h6>@{{files.username}}</h6></a>
+            <img src="../image/{{files.image}}" alt="">
+            <h4>Tags:</h4>
+                        {{#each files.tag}}
+                        <h5>{{name}}</h5>
+                        {{/each}}
+        </main>
+  </body>
+</html>
+

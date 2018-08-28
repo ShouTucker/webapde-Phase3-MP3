@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>MemePanda</title>
+        <link rel="stylesheet" href="/css/bootstrap.css" />
+        <link rel="stylesheet" href="/css/style.css" />
+    </head>
+     
+    <body class="text-center">
+        <form class="form-signin">
+            {{#if success_msg}}
+                <div class="alert alert-success">{{success_msg}}</div>
+            {{/if}}
+            {{#if error_msg}}
+            <div class="alert alert-danger">{{error_msg}}</div>
+            {{/if}}
+            {{#if error}}
+                <div class="alert alert-danger">{{error}}</div>
+            {{/if}}
+            <img class="mb-4" src="/images/logo.jpg" alt="" width="190" height="190" src="/" onclick="window.location.href='http://localhost:3000/'" style="cursor: pointer">
+            <h1 class="h3 mb-3 font-weight-normal">MEME PANDA</h1>
+            <a class="btn btn-lg btn-primary btn-block" onclick="window.location.href='users/login'" style="color: white">Sign in</a>
+        
+            <a class="btn btn-lg btn-primary btn-block" onclick="window.location.href='/users/register'" style="color: white">Register</a>
+      
+            <p class="mt-5 mb-3 text-muted">&copy;Meme Panda 2018</p>
+    
+        </form>
+  </body>
+</html>

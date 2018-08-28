@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>MemePanda</title>
+        <link rel="stylesheet" href="/css/bootstrap.css" />
+        <style>
+             .logo{
+                width:4%;
+                height:4%;
+            }
+            
+            .upload{
+                width:2%;
+                height:2%;
+                margin:0;
+            }
+        </style>
+    </head>
+     
+    <body>
+        
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <img class="logo" src="/images/logo.jpg" alt="" onclick="window.location.href='http://localhost:3000/home'" style="cursor: pointer">
+            <a class="navbar-brand" href="/users/home">  MEME PANDA</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="form-inline" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/profile">Account</a>
+                    </li> 
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/upload">Upload</a>
+                    </li>
+                    <li class="nav-item active"> 
+                        <a class="nav-link" href="/users/logout">Logout</a>  
+                    </li>
+                </ul> 
+                
+            </div>
+        </nav>
+        
+        <br> <br>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 m-auto">
+                    <h1 class="text-center display-4 my-4">File Upload</h1>
+                    <form action="/upload" method="POST" enctype="multipart/form-data">
+                        <div class="custom-file mb-3">
+                            <input type="file" name="file" id="file" class="custom-file-input">
+                            <input type="hidden" name="image" value="{{uploads.filename}}">
+                            <input type="hidden" name="user" value="{{user._id}}">
+                            <label for="file" class="custom-file-label">Choose File</label>
+                        </div>
+                            
+                            
+                        <input type = "text" name = "title" placeholder="Title" class="form-control">
+                        <input type = "text" name = "tag" placeholder="Tags" class="form-control">
+                        <select class="custom-select d-block w-100" name="Privacy" required onchange="if (this.value=='True'){this.form['Users'].style.visibility='visible'}else {this.form['Users'].style.visibility='hidden'};">
+                            <option value="False">Public</option>
+                            <option value="True">Private</option>    
+                        </select>
+                        <input type="text" name="Users" placeholder="Username to share" style="visibility:hidden;" class="form-control"/>
+                        <br>
+                                
+                        <input type="submit" value="Submit" class="btn btn-primary btn-block">
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <script src="/js/bootstrap.js"></script>
+  </body>
+</html>

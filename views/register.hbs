@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>MemePanda</title>
+        <link rel="stylesheet" href="/css/bootstrap.css" />
+        <link rel="stylesheet" href="/css/style.css" />
+    </head>
+     
+ <body class="text-center">
+     
+     <form class="form-signin" method="post" action="/users/register">
+         <img class="mb-4" src="/images/logo.jpg" alt="" width="190" height="190" onclick="window.location.href='http://localhost:3000/'" style="cursor: pointer">
+         <h1 class="h3 mb-3 font-weight-normal">Register your Account</h1>
+         <label for="inputUsername" class="sr-only">Username</label>
+         <input type="text" id="inputUser" class="form-control" placeholder="Username" name="username" required autofocus>
+         <label for="inputPassword" class="sr-only">Password</label>
+         <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+         <label for="inputPassword" class="sr-only">Confirm Password</label>
+         <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Confirm Password" name="password2" required>
+          {{#if errors}}
+            {{#each errors}}
+                <div class="alert alert-danger">{{msg}}</div>
+            {{/each}}
+        {{/if}}
+         <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+         <a href="/users/login" style="color:blue;text-decoration:underline">Already have an Account? Sign in now!</a>
+         <p class="mt-5 mb-3 text-muted">&copy; Meme Panda 2018</p>
+    </form>
+  </body>
+</html>
